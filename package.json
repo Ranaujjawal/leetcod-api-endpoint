@@ -1,0 +1,15 @@
+{
+  "name": "ltendpoint",
+  "version": "1.0.0",
+  "description": "leetcode graph ql endpoint api to fetch  data ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ujjawal Rana",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}
