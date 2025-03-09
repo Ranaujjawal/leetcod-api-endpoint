@@ -3,10 +3,21 @@ const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 const query=`
 query getUserProfile($username: String!) {
+userContestRanking(username: $username) {
+        attendedContestsCount
+        rating
+        globalRanking
+        totalParticipants
+        topPercentage
+        badge {
+            name
+        }
+    } 
  allQuestionsCount {
       difficulty
       count
     }
+      
   matchedUser(username: $username) {
     username
      contributions {
@@ -44,6 +55,9 @@ const formatData = (data) => {
         ranking: data.matchedUser.profile.ranking,
         contributionPoint: data.matchedUser.contributions.points,
         reputation: data.matchedUser.profile.reputation,
+        contestrank: data.userContestRanking.globalRanking,
+        contestrating: data.userContestRanking.rating,
+        contestbadge: data.userContestRanking.badge.name,
     }
     return sendData;
 }
